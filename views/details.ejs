@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+
+
+<body>
+    <%details.forEach(item=>{%>
+        <h2>
+            <%=item.number%>
+        </h2>
+        <h2>
+            <%=item.type %>
+        </h2>
+        <p>
+            <%=item.setup %>
+        </p>
+        <p>
+            <%=item.punchline%>
+        </p>
+        <form action="/delete/<%=item.id%>?_method=DELETE" id="deleteForm" method="post">
+            <input type="submit" value="Delete">
+        </form>
+        <button id="updateBtn">Update</button>
+        <form action="/update/<%=item.id%>?_method=PUT" id="updateForm" method="post">
+            <input type="text" name="number" value="<%=item.number %>">
+            <input type="text" name="type" value="<%=item.type%>">
+            <input type="text" name="setup" value="<%=item.setup%>">
+            <input type="text" name="punchline" value="<%=item.punchline%>">
+            <input type="submit" value="update">
+        </form>
+        <%})%>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#updateForm').hide();
+            $('#updateBtn').on('click', function () {
+            $('#updateForm').toggle();
+            })
+        </script>   
+
+</body>
+
+</html>

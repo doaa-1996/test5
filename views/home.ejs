@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%jokes.forEach(item=>{%>
+    <h2><%=item.number %></h2>
+    <h2><%=item.type %></h2>
+    <p><%=item.setup %></p>
+    <p><%=item.punchline%></p>
+
+    <form action="/addToFavorite" id="addToFavoriteForm" method="post">
+    <input type="hidden" name="number" value="<%=item.number %>">
+    <input type="hidden" name="type" value="<%=item.type%>">
+    <input type="hidden" name="setup" value="<%=item.setup%>">
+    <input type="hidden" name="punchline" value="<%=item.punchline%>">
+    <input type="submit" value="Add to favorites">
+    </form>
+   <% })%>
+</body>
+</html>

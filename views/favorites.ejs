@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <% if(favorites.length!==0){%>
+
+        <%favorites.forEach(item=>{%>
+            <h2>
+                <%=item.number%>
+            </h2>
+            <h2>
+                <%=item.type %>
+            </h2>
+            <p>
+                <%=item.setup %>
+            </p>
+            <p>
+                <%=item.punchline%>
+            </p>
+            <form action="/showdetails/<%=item.id%>" id="showdetailsform" method="get">
+                <input type="submit" value="View details">
+            </form>
+            <%})%>
+                <%}%>
+
+                    <% if(favorites.length==0){%>
+                        <h3>no available jokes</h3>
+                        <%}%>
+
+</body>
+
+</html>
